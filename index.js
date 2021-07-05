@@ -1,42 +1,23 @@
-const Discord = require(`discord.js`)
 
-function simpmeter(Options){
+/**
+ * 
+ * @param {Int} low This parameter will be your lowest digit [Example: If your "low" digit is '1' then it will give you a random number between 1 and "high"]
+ * @param {Int} high This parameter will be your highest digit [Example: If your "high" digit is '30' then it will give you a random number between "low" and 30]
+ * @returns 
+ */
 
-    var RandomNumber = Math.floor(Math.random() * (100 - 1) + 1)
-
-    let Sentence = ` has a rating of % on the simpmeter!`
-    let MentionedUser = message.mentions.users.first()
-    if(Options.Simp === 'mentioned'){
-        MentionedUser = message.mentions.users.first()
-    }else if(Options.Simp === 'author'){
-        MentionedUser = message.author
-    }else if(Options.Simp === 'mentioned/author'){
-        MentionedUser = message.mentions.users.first() || message.author
-    }else{
-         MentionedUser = message.mentions.users.first() || message.author
-    }
-
-    Sentence = (`${MentionedUser.username} has a rating of ${RandomNumber}% on the simpmeter!`)
+ const Discord = require('discord.js')
 
 
+function calculate(low, high){
+    let Result = Math.floor(Math.random() * (high - low) + low)
+ let res = JSON.parse(Result)
 
-
-
-
-    
-       
-      
-        
-    
-    
-   
-
-  
-
+ return res;
 }
 
 
-module.exports.simpmeter = simpmeter;
+module.exports.calculate = calculate;
 
 
 
